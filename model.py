@@ -3,6 +3,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 from train import load_training_data, create_training_data
 import pickle
+import numpy as np
 
 
 def create_model(training_data):
@@ -19,10 +20,10 @@ def create_model(training_data):
 
     model.add(Flatten())
     model.add(Dense(64, activation='sigmoid'))
-    model.add(Dense(1))
+    model.add(Dense(3, activation='softmax'))
     print(model.summary)
 
-    model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+    model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
                   optimizer='adam', metrics=['accuracy'])
 
     return model
@@ -32,7 +33,7 @@ def train_model(model, training_data, batch_size, epochs):
     (features, labels) = training_data
     features = features / 255.0
 
-    model.fit(features, labels, batch_size=32)
+    model.fit(features, np.array(labels), batch_size=batch_size, epochs=epochs)
 
 
 training_data = load_training_data()

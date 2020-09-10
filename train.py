@@ -47,5 +47,3 @@ def load_training_data():
     labels = pickle.load(pickle_in_labels)
 
     return [features, labels]
-
-print(load_training_data()[0][0])
