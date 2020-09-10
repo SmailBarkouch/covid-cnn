@@ -32,7 +32,7 @@ def train_model(model, training_data, batch_size, epochs):
     (features, labels) = training_data
     features = features / 255.0
 
-    model.fit(features, labels, batch_size=batch_size, epochs=epochs)
+    model.fit(features, labels, batch_size=32)
 
 
 training_data = load_training_data()
