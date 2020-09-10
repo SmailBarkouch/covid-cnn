@@ -26,28 +26,26 @@ def create_training_data():
     for feature, label in training_data:
         features.append(feature)
         labels.append(label)
-
+    
     features = np.array(features).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
 
-    pickle_out_features = open(f'{EDITIED_DIR}/features.pickle', 'wb')
-    pickle.dump(features, pickle_out_features)
-    pickle_out_features.close()
+    pickle_out = open(f'{EDITIED_DIR}/features.pickle', 'wb')
+    pickle.dump(features, pickle_out)
+    pickle_out.close()
 
-    pickle_out_labels = open(f'{EDITIED_DIR}/labels.pickle', 'wb')
-    pickle.dump(labels, pickle_out_labels)
-    pickle_out_labels.close()
-    return training_data
+    pickle_out = open(f'{EDITIED_DIR}/labels.pickle', 'wb')
+    pickle.dump(labels, pickle_out)
+    pickle_out.close()
+
+    return [features, labels]
 
 def load_training_data():
-    pickle_in_features = open(f'{EDITIED_DIR}/features.pickle', 'wb')
+    pickle_in_features = open(f'{EDITIED_DIR}/features.pickle', 'rb')
     features = pickle.load(pickle_in_features)
 
-    pickle_in_labels = open(f'{EDITIED_DIR}/labels.pickle', 'wb')
+    pickle_in_labels = open(f'{EDITIED_DIR}/labels.pickle', 'rb')
     labels = pickle.load(pickle_in_labels)
 
-    training_data = []
+    return [features, labels]
 
-    for feature, label in zip(features, labels):
-        
-
-    return []
+print(load_training_data()[0][0])
