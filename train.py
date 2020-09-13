@@ -9,6 +9,7 @@ from model import create_model
 
 TRAINING_DIR = 'training-data/pre-editied-images/'
 EDITIED_DIR = 'training-data/editied-images/'
+TRAINED_MODELS_DIR = 'trained-models/'
 CATEGORIES = ['covid', 'normal', 'pneumonia']
 IMG_SIZE = 100
 
@@ -55,6 +56,11 @@ def train_model(model, training_data, batch_size, epochs):
     features = features / 255.0
 
     model.fit(features, labels, batch_size=batch_size, epochs=epochs)
+
+    model.save(TRAINED_MODELS_DIR)
+
+def load_trained_model():
+    return tf.keras.models.load_model(TRAINED_MODELS_DIR)
 
 
 

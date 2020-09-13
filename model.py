@@ -3,9 +3,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 import numpy as np
 
-
 def create_model(training_data):
-    (features, labels) = training_data
+    (features, _) = training_data
     features = features / 255.0
 
     model = Sequential()
@@ -23,5 +22,5 @@ def create_model(training_data):
 
     model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
                   optimizer='adam', metrics=['accuracy'])
-
+    
     return model
