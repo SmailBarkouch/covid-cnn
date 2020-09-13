@@ -5,11 +5,12 @@ import random as rand
 import numpy as np
 import pickle
 import os
+from model import create_model
 
 TRAINING_DIR = 'training-data/pre-editied-images/'
 EDITIED_DIR = 'training-data/editied-images/'
 CATEGORIES = ['covid', 'normal', 'pneumonia']
-IMG_SIZE = 180
+IMG_SIZE = 100
 
 def create_training_data():
     training_data = []
@@ -28,6 +29,7 @@ def create_training_data():
         labels.append(label)
     
     features = np.array(features).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+    labels = np.array(labels)
 
     pickle_out = open(f'{EDITIED_DIR}/features.pickle', 'wb')
     pickle.dump(features, pickle_out)
@@ -47,3 +49,13 @@ def load_training_data():
     labels = pickle.load(pickle_in_labels)
 
     return [features, labels]
+
+def train_model(model, training_data, batch_size, epochs):
+    (features, labels) = training_data
+    features = features / 255.0
+
+    model.fit(features, labels, batch_size=batch_size, epochs=epochs)
+
+
+
+

@@ -129,5 +129,4 @@ dmypy.json
 .pyre/
 
 # Testing and training data
-testing-data/
-training-data/
+pre-editied-images/

@@ -1,8 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
-from train import load_training_data, create_training_data
-import pickle
 import numpy as np
 
 
@@ -27,14 +25,3 @@ def create_model(training_data):
                   optimizer='adam', metrics=['accuracy'])
 
     return model
-
-
-def train_model(model, training_data, batch_size, epochs):
-    (features, labels) = training_data
-    features = features / 255.0
-
-    model.fit(features, np.array(labels), batch_size=batch_size, epochs=epochs)
-
-
-training_data = load_training_data()
-train_model(create_model(training_data), training_data, 32, 2)
