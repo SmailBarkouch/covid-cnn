@@ -130,3 +130,6 @@ dmypy.json
 
 # Testing and training data
 pre-editied-images/
+
+# MacOS Stuff
+.DS_Store
