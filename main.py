@@ -18,7 +18,7 @@ elif sys.argv[1] == "create_testing_data":
     create_testing_data()
 elif sys.argv[1] == "train_new_model":
     training_data = load_training_data()
-    train_model(create_model(training_data), training_data, 32, 1)
+    train_model(create_model(training_data), training_data, 32, 2)
 elif sys.argv[1] == "train_old_model":
     training_data = load_training_data()
     train_model(load_trained_model(), training_data, 32, 1)

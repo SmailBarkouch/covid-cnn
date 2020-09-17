@@ -9,7 +9,7 @@ from model import create_model
 
 TRAINING_DIR = 'training-data/pre-editied-images'
 EDITIED_DIR = 'training-data/editied-images'
-TRAINED_MODELS_DIR = 'trained-models'
+TRAINED_MODELS_DIR = 'trained-model'
 CATEGORIES = ['covid', 'normal', 'pneumonia']
 IMG_SIZE = 100
 
