@@ -7,9 +7,9 @@ import pickle
 import os
 from model import create_model
 
-TRAINING_DIR = 'training-data/pre-editied-images/'
-EDITIED_DIR = 'training-data/editied-images/'
-TRAINED_MODELS_DIR = 'trained-models/'
+TRAINING_DIR = 'training-data/pre-editied-images'
+EDITIED_DIR = 'training-data/editied-images'
+TRAINED_MODELS_DIR = 'trained-models'
 CATEGORIES = ['covid', 'normal', 'pneumonia']
 IMG_SIZE = 100
 
@@ -18,7 +18,7 @@ def create_training_data():
     for category in CATEGORIES:
         path = os.path.join(TRAINING_DIR, category)
         class_num = CATEGORIES.index(category)
-        for img in os.listdir(path): # maybe do try and except
+        for img in os.listdir(path):
             img_array = cv.imread(os.path.join(path, img), cv.IMREAD_GRAYSCALE)
             new_array = cv.resize(img_array, (IMG_SIZE, IMG_SIZE))
             training_data.append([new_array, class_num])

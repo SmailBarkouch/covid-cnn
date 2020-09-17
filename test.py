@@ -6,8 +6,8 @@ import numpy as np
 import pickle
 import os
 
-TRAINING_DIR = 'testing-data/pre-editied-images/'
-EDITIED_DIR = 'testing-data/editied-images/'
+TRAINING_DIR = 'testing-data/pre-editied-images'
+EDITIED_DIR = 'testing-data/editied-images'
 CATEGORIES = ['covid', 'normal', 'pneumonia']
 IMG_SIZE = 100
 
