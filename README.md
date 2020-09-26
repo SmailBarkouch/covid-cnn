@@ -7,14 +7,14 @@ A convolutional neural netowrk that detects covid-19 and pneumonia from an x-ray
 Using the normalized training dataset already compiled in this repo (`training-data/editied-images`), this model has around a 92% accuracy.
 
 ```
-**Traing Example (batch size is 32, 2 epochs)**
+Traing Example (batch size is 32, 2 epochs)
 Epoch 1/2
 161/161 [==============================] - 78s 486ms/step - loss: 0.4481 - sparse_categorical_accuracy: 0.8248
 
 Epoch 2/2
 161/161 [==============================] - 73s 451ms/step - loss: 0.2150 - sparse_categorical_accuracy: 0.9236
 
-**Testing Example (batch size is 32)** 
+Testing Example (batch size is 32)
 41/41 [==============================] - 4s 97ms/step - loss: 0.2377 - sparse_categorical_accuracy: 0.9154
 ```
 
