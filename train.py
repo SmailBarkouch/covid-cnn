@@ -51,11 +51,11 @@ def load_training_data():
 
     return [features, labels]
 
-def train_model(model, training_data, batch_size, epochs):
+def train_model(model, training_data, epochs):
     (features, labels) = training_data
     features = features / 255.0
 
-    model.fit(features, labels, batch_size=batch_size, epochs=epochs)
+    model.fit(features, labels, epochs=epochs)
 
     model.save(TRAINED_MODELS_DIR)
 

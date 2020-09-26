@@ -49,8 +49,8 @@ def load_testing_data():
 
     return [features, labels]
 
-def test_model(model, testing_data, batch_size):
+def test_model(model, testing_data):
     (features, labels) = testing_data
     features = features / 255.0
 
-    model.evaluate(features, labels, batch_size)
+    model.evaluate(features, labels)

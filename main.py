@@ -18,13 +18,13 @@ elif sys.argv[1] == "create_testing_data":
     create_testing_data()
 elif sys.argv[1] == "train_new_model":
     training_data = load_training_data()
-    train_model(create_model(training_data), training_data, 32, 2)
+    train_model(create_model(training_data), training_data, 2)
 elif sys.argv[1] == "train_old_model":
     training_data = load_training_data()
-    train_model(load_trained_model(), training_data, 32, 1)
+    train_model(load_trained_model(), training_data, 2)
 elif sys.argv[1] == "test_model":
     testing_data = load_testing_data()
-    test_model(load_trained_model(), testing_data, 32)
+    test_model(load_trained_model(), testing_data)
 else:
     print("Your argument doesn't match any available method.")
 
